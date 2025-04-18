@@ -6,7 +6,7 @@
 //! usage by Rust code in the kernel and is shared by all of them.
 //!
 //! In other words, all the rest of the Rust code in the kernel (e.g. kernel
-//! modules written in Rust) depends on [`core`], [`alloc`] and this crate.
+//! modules written in Rust) depends on [`core`] and this crate.
 //!
 //! If you need a kernel C API that is not ported or wrapped yet here, then
 //! do so first instead of bypassing this crate.
@@ -19,6 +19,8 @@
 #![cfg_attr(not(CONFIG_RUSTC_HAS_COERCE_POINTEE), feature(unsize))]
 #![feature(inline_const)]
 #![feature(lint_reasons)]
+// Stable in Rust 1.82
+#![feature(raw_ref_op)]
 // Stable in Rust 1.83
 #![feature(const_maybe_uninit_as_mut_ptr)]
 #![feature(const_mut_refs)]
